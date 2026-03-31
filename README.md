@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# First App Next.js - Practica de App Router
 
-## Getting Started
+Proyecto de practica en Next.js para demostrar navegacion, consumo de API y diferencia entre `Client Components` y `Server Components`.
 
-First, run the development server:
+## Autor
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Nombre:** Luis Rafael Prado Quintero (Estudiantes)
+- **Academia:** Acedemia Code Crypto (Donde estoy aprendiendo)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Objetivo de la practica
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Consumir datos de `https://jsonplaceholder.typicode.com/posts`.
+- Mostrar lista en una tabla dentro de `/blogs`.
+- Filtrar un post en `/` usando query params (`/?idBlog=2`).
+- Separar la implementacion usando componentes cliente y servidor.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Conceptos aplicados
 
-## Learn More
+- **App Router:** rutas estaticas y dinamicas (`/blogs`, `/blogs/[idBlog]`).
+- **Client Component (`"use client"`):** uso de `useEffect`, `useState`, eventos de UI y navegacion por click.
+- **Server Component:** lectura de `searchParams` y `fetch` del post en servidor.
+- **Navegacion:** uso de `Link` y query params para comunicar vistas.
+- **Organizacion del proyecto:** separacion por `components`, `lib` y `types`.
 
-To learn more about Next.js, take a look at the following resources:
+## Estructura clave
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `app/page.tsx`: Home (Server Component) y filtro por `idBlog`.
+- `app/blogs/page.tsx`: pagina de Blogs (Server Component que renderiza un componente cliente).
+- `components/client-posts-table.tsx`: tabla y fetch en cliente (`"use client"`).
+- `components/server-selected-post.tsx`: render del post filtrado en servidor.
+- `components/portfolio-theory.tsx`: resumen teorico para portafolio.
+- `lib/api.ts`: URL base y helper para obtener un post por ID.
+- `types/post.ts`: tipo de datos `Post`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+- `npm run dev`: inicia el servidor de desarrollo.
+- `npm run build`: genera la build de produccion.
+- `npm run start`: ejecuta la build de produccion.
+- `npm run lint`: ejecuta ESLint.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Como probar rapido
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Ejecuta `npm run dev`.
+2. Ve a `http://localhost:3000`.
+3. Entra a `Blogs`.
+4. Haz click en cualquier fila o en el ID de la tabla.
+5. Verifica que vuelva al Home con una URL tipo `/?idBlog=2` y muestre el post filtrado.
