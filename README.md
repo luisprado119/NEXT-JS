@@ -4,8 +4,8 @@ Proyecto de practica en Next.js para demostrar navegacion, consumo de API y dife
 
 ## Autor
 
-- **Nombre:** Luis Rafael Prado Quintero (Estudiantes)
-- **Academia:** Acedemia Code Crypto (Donde estoy aprendiendo)
+- **Nombre:** Luis Rafael Prado Quintero
+- **Academia:** Acedemia Code Crypto
 
 ## Objetivo de la practica
 
